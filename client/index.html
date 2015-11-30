@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="olympics">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <h1>Olympic Games</h1>
+
+  <div class="sports-list" ng-controller="SportsController">
+    <ul ng-cloak>
+      <li class="sport-name" ng-repeat="sport in sports">{{ sport.name }}</li>
+    </ul>
+  </div>
+
+  <script src="dist/bundle.js"></script>
+</body>
+</html>
