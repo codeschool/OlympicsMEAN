@@ -13,6 +13,6 @@
     "babel-preset-es2015": "^6.1.18",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
-    "permissive-cors": "0.0.1"
+    "permissive-cors": "^1.0.0"
   }
 }

@@ -4,17 +4,7 @@ let express = require("express");
 let app = express();
 
 
-function cors() {
-
-  return function(req, res, next) {
-    // Allows requests from anywhere
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Respond right away on pre-flight requests
-    if ('OPTIONS' == req.method) return res.end('', 200);
-    next();
-  }
-}
-
+let cors = require("permissive-cors");
 app.use(cors());
 
 let _db = {
