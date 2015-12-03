@@ -7,3 +7,9 @@ Code for the MEAN Soup to Bits
 * Angular
 * Node
 
+## Running
+
+* npm install
+* node run.js
+
+
