@@ -1,4 +1,40 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"use strict";
+
+var _angular = require("angular");
+
+var _angular2 = _interopRequireDefault(_angular);
+
+require("angular-ui-router");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = _angular2.default.module("olympics", ["ui.router"]);
+
+app.controller("SportsController", SportsController);
+
+function SportsController($scope, $http) {
+  $http.get("/sports").success(function (data) {
+    $scope.sports = data.sports;
+  });
+}
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise("/");
+
+  $stateProvider.state("sports-show", {
+    url: "/sports/:sportId",
+    templateUrl: "partials/sports-show.html",
+    controller: function controller($http, $scope, $stateParams) {
+      $http.get("/sports/" + $stateParams.sportId).success(function (sport) {
+        $scope.sport = sport;
+      });
+    }
+  });
+});
+
+},{"angular":4,"angular-ui-router":2}],2:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4369,7 +4405,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33388,56 +33424,8 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":2}],4:[function(require,module,exports){
-"use strict";
-
-var _angular = require("angular");
-
-var _angular2 = _interopRequireDefault(_angular);
-
-require("angular-ui-router");
-
-var _constants = require("./constants");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var app = _angular2.default.module("olympics", ["ui.router"]);
-
-app.controller("SportsController", SportsController);
-
-function SportsController($scope, $http) {
-  $http.get(_constants.BASE_URI + "/sports").success(function (data) {
-    $scope.sports = data.sports;
-  });
-}
-
-app.config(function ($stateProvider, $urlRouterProvider) {
-
-  $urlRouterProvider.otherwise("/");
-
-  $stateProvider.state("sports-show", {
-    url: "/sports/:sportId",
-    templateUrl: "partials/sports-show.html",
-    controller: function controller($http, $scope, $stateParams) {
-      $http.get(_constants.BASE_URI + "/sports/" + $stateParams.sportId).success(function (sport) {
-        $scope.sport = sport;
-      });
-    }
-  });
-});
-
-},{"./constants":5,"angular":3,"angular-ui-router":1}],5:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var BASE_URI = "http://localhost:8181";
-
-exports.BASE_URI = BASE_URI;
-
-},{}]},{},[4]);
+},{"./angular":3}]},{},[1]);
