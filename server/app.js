@@ -8,6 +8,8 @@ app.use(cors());
 
 let Sport = require("./sport");
 
+app.use(express.static(__dirname + "/../client"));
+
 app.get("/sports", (request, response) => {
 
   Sport.findAll( (sports) => {
@@ -23,8 +25,5 @@ app.get("/sports/:id", (request, response) => {
   });
 });
 
-let port = 8181;
 
-app.listen(port, () => {
-  console.log( "Listening on port " + port );
-});
+module.exports = app;
