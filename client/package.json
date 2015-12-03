@@ -18,6 +18,7 @@
     "xss-filters": "^1.2.6"
   },
   "dependencies": {
-    "angular": "^1.4.8"
+    "angular": "^1.4.8",
+    "angular-ui-router": "^0.2.15"
   }
 }

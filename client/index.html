@@ -15,9 +15,13 @@
 
   <div class="sports-list" ng-controller="SportsController">
     <ul ng-cloak>
-      <li class="sport-name" ng-repeat="sport in sports">{{ sport.name }}</li>
+      <li class="sport-name" ng-repeat="sport in sports">
+        <a ui-sref="sports-show({ sportId: sport.id })"> {{ sport.name }} </a>
+      </li>
     </ul>
   </div>
+
+  <div class="sports-info" ui-view></div>
 
   <script src="dist/bundle.js"></script>
 </body>
