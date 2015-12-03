@@ -18,7 +18,7 @@ app.config( ($stateProvider, $urlRouterProvider) => {
   $stateProvider
     .state("sports-show", {
       url: "/sports/:sportId",
-      templateUrl: "partials/sports-show.html",
+      templateUrl: "templates/pages/sports/show.html",
       controller: ($http, $scope, $stateParams) => {
         $http.get(`/sports/${$stateParams.sportId}`).success( (sport) => {
           $scope.sport = sport;
