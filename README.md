@@ -9,7 +9,11 @@ Code for the MEAN Soup to Bits
 
 ## Running
 
-* npm install
-* node run.js
+* `npm install`
+* `node run.js`
 
 
+## Developing
+
+* `npm run watch`
+* `node run.js` (must restart upon changes)
