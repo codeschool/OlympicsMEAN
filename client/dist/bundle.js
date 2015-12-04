@@ -19,6 +19,18 @@ function SportsController($scope, $http) {
   });
 }
 
+app.controller("MedalController", MedalController);
+
+function MedalController($state) {
+  this.medal = {};
+  this.addMedal = function (sportId, medal) {
+    //
+    // $http.post()....
+    //
+    $state.go("sports-show", { sportId: sportId });
+  };
+}
+
 app.config(function ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/");
@@ -26,6 +38,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state("sports-show", {
     url: "/sports/:sportId",
     templateUrl: "templates/pages/sports/show.html",
+    controller: function controller($http, $scope, $stateParams) {
+      $http.get("/sports/" + $stateParams.sportId).success(function (sport) {
+        $scope.sport = sport;
+      });
+    }
+  }).state("medals-new", {
+    url: "/sports/:sportId/medals/new",
+    templateUrl: "templates/pages/medals/new.html",
     controller: function controller($http, $scope, $stateParams) {
       $http.get("/sports/" + $stateParams.sportId).success(function (sport) {
         $scope.sport = sport;
