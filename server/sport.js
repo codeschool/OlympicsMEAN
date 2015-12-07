@@ -18,6 +18,13 @@ let Sport = {
       return a.year - b.year;
     });
     cb(result);
+  },
+  /* Adds a new medal do the sport */
+  addMedal(sportId, medal, cb){
+    let sport = _db.sports.find( (sport) => parseInt(sport.id) === parseInt(sportId) );
+    sport.goldMedals.push(medal);
+
+    cb(null); // null means no error
   }
 };
 

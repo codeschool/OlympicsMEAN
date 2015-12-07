@@ -5,21 +5,44 @@ let app = angular.module("olympics", ["ui.router"]);
 
 app.controller("SportsController", SportsController);
 
-function SportsController($scope, $http){
-  $http.get(`/sports`).success( (data) => {
+function SportsController($scope, Sport){
+  Sport.findAll().success( (data) => {
     $scope.sports = data.sports;
   });
 }
 
-app.controller("MedalController", MedalController);
+app.factory("Sport", SportFactory);
 
-function MedalController($state){
+function SportFactory($http){
+  return {
+    findAll(){
+      return $http({ method: "GET", url: "/sports" });
+    },
+
+    find(sportId){
+      return $http({ method: "GET", url: `/sports/${sportId}` });
+   }
+  }
+}
+
+app.factory("Medal", MedalFactory);
+
+function MedalFactory($http){
+  return {
+    create(sportId, medal){
+      return $http({ method: "POST", url: `/medals/${sportId}`, data: { medal } });
+    }
+  }
+}
+
+app.controller("MedalsController", MedalsController);
+
+function MedalsController($state, Medal){
   this.medal = {};
   this.addMedal = (sportId, medal) => {
-    //
-    // $http.post()....
-    //
-    $state.go("sports-show", { sportId });
+    Medal.create(sportId, medal).success( () => {
+      $state.go("sports-show", { sportId });
+    });
   }
 }
 
@@ -28,20 +51,22 @@ app.config( ($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise("/");
 
   $stateProvider
+
     .state("sports-show", {
       url: "/sports/:sportId",
       templateUrl: "templates/pages/sports/show.html",
-      controller: ($http, $scope, $stateParams) => {
-        $http.get(`/sports/${$stateParams.sportId}`).success( (sport) => {
+      controller: ($scope, $stateParams, Sport) => {
+        Sport.find($stateParams.sportId).success( (sport) => {
           $scope.sport = sport;
         });
       }
     })
+
     .state("medals-new", {
       url: "/sports/:sportId/medals/new",
       templateUrl: "templates/pages/medals/new.html",
-      controller: ($http, $scope, $stateParams) => {
-        $http.get(`/sports/${$stateParams.sportId}`).success( (sport) => {
+      controller: ($scope, $stateParams, Sport) => {
+        Sport.find($stateParams.sportId).success( (sport) => {
           $scope.sport = sport;
         });
       }

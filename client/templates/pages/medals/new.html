@@ -1,6 +1,6 @@
 <form name="newMedalForm"
-  ng-controller="MedalController as medalCtrl"
-  ng-submit="medalCtrl.addMedal(sport.id, medal)"/>
+  ng-controller="MedalsController as medalsCtrl"
+  ng-submit="medalsCtrl.addMedal(sport.id, medal)"/>
 
   <label>New Medal for {{ sport.name }}</label>
 
@@ -9,8 +9,13 @@
     </br>
     Country: <input ng-model="medal.country" required />
     </br>
-    Year: <input ng-model="medal.year" required />
+    Year:
+    <select ng-model="medal.year" required>
+      <option value="2012">2012</option>
+      <option value="2016">2016</option>
+    </select>
     </br>
+
     <input type="submit" value="Submit" />
   </p>
 
