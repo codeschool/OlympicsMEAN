@@ -10,12 +10,13 @@
   "author": "Carlos Souza <carloshrsouza@gmail.com> (http://csouza.me/)",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "extend": "^3.0.0",
-    "permissive-cors": "^1.0.0",
-    "angular": "^1.4.8",
-    "angular-ui-router": "^0.2.15"
+    "permissive-cors": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.2.1",

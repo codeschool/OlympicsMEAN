@@ -5,44 +5,32 @@ var _angular = require("angular");
 
 var _angular2 = _interopRequireDefault(_angular);
 
-require("angular-ui-router");
+require("./olympics-controllers");
+
+require("./olympics-services");
+
+require("./olympics-routes");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = _angular2.default.module("olympics", ["ui.router"]);
+_angular2.default.module("olympics", ["olympics.routes", "olympics.controllers", "olympics.services"]);
 
-app.controller("SportsController", SportsController);
+},{"./olympics-controllers":2,"./olympics-routes":3,"./olympics-services":4,"angular":7}],2:[function(require,module,exports){
+"use strict";
+
+var _angular = require("angular");
+
+var _angular2 = _interopRequireDefault(_angular);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_angular2.default.module("olympics.controllers", []).controller("SportsController", SportsController).controller("MedalsController", MedalsController);
 
 function SportsController($scope, Sport) {
   Sport.findAll().success(function (data) {
     $scope.sports = data.sports;
   });
 }
-
-app.factory("Sport", SportFactory);
-
-function SportFactory($http) {
-  return {
-    findAll: function findAll() {
-      return $http({ method: "GET", url: "/sports" });
-    },
-    find: function find(sportId) {
-      return $http({ method: "GET", url: "/sports/" + sportId });
-    }
-  };
-}
-
-app.factory("Medal", MedalFactory);
-
-function MedalFactory($http) {
-  return {
-    create: function create(sportId, medal) {
-      return $http({ method: "POST", url: "/medals/" + sportId, data: { medal: medal } });
-    }
-  };
-}
-
-app.controller("MedalsController", MedalsController);
 
 function MedalsController($state, Medal) {
   this.medal = {};
@@ -53,7 +41,18 @@ function MedalsController($state, Medal) {
   };
 }
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+},{"angular":7}],3:[function(require,module,exports){
+"use strict";
+
+var _angular = require("angular");
+
+var _angular2 = _interopRequireDefault(_angular);
+
+require("angular-ui-router");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_angular2.default.module("olympics.routes", ["ui.router"]).config(function ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/");
 
@@ -76,7 +75,37 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   });
 });
 
-},{"angular":4,"angular-ui-router":2}],2:[function(require,module,exports){
+},{"angular":7,"angular-ui-router":5}],4:[function(require,module,exports){
+"use strict";
+
+var _angular = require("angular");
+
+var _angular2 = _interopRequireDefault(_angular);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_angular2.default.module("olympics.services", []).factory("Sport", SportFactory).factory("Medal", MedalFactory);
+
+function SportFactory($http) {
+  return {
+    findAll: function findAll() {
+      return $http({ method: "GET", url: "/sports" });
+    },
+    find: function find(sportId) {
+      return $http({ method: "GET", url: "/sports/" + sportId });
+    }
+  };
+}
+
+function MedalFactory($http) {
+  return {
+    create: function create(sportId, medal) {
+      return $http({ method: "POST", url: "/medals/" + sportId, data: { medal: medal } });
+    }
+  };
+}
+
+},{"angular":7}],5:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4447,7 +4476,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],3:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33466,8 +33495,8 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],4:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":3}]},{},[1]);
+},{"./angular":6}]},{},[1]);
