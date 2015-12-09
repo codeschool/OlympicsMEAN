@@ -13,7 +13,7 @@ require("./olympics-routes");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module("olympics", ["olympics.routes", "olympics.controllers", "olympics.services"]);
+_angular2.default.module("olympics", ["olympics.routes", "olympics.services", "olympics.controllers"]);
 
 },{"./olympics-controllers":2,"./olympics-routes":3,"./olympics-services":4,"angular":7}],2:[function(require,module,exports){
 "use strict";

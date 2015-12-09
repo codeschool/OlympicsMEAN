@@ -4,4 +4,4 @@ import "./olympics-controllers";
 import "./olympics-services";
 import "./olympics-routes";
 
-angular.module("olympics", ["olympics.routes", "olympics.controllers", "olympics.services"]);
+angular.module("olympics", ["olympics.routes", "olympics.services", "olympics.controllers"]);
