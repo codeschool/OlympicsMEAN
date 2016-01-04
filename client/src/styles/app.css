@@ -199,7 +199,9 @@ a {
 *   List
 -----------------------------------------------*/
 
-/* .list {} */
+.list {
+  margin-bottom: 20px;
+}
 
 .list--unstyled {
   list-style-type: none;
