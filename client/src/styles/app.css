@@ -146,6 +146,11 @@ a {
   width: 100%;
 }
 
+.form-input:focus {
+  border-color: #ef8354;
+  outline: none;
+}
+
 /* Label */
 
 .form-label {
