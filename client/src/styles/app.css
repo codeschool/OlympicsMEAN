@@ -55,6 +55,13 @@ a {
   display: inline-block;
   line-height: 2.5;
   padding: 0 40px;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:active,
+.btn:focus,
+.btn:hover {
+  background-color: #d6774e;
 }
 
 /*-----------------------------------------------
