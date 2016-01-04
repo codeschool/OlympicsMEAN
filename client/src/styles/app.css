@@ -219,6 +219,49 @@ a {
 }
 
 /*-----------------------------------------------
+*   Table
+-----------------------------------------------*/
+
+.table {
+  border: 1px solid #bfc0c0;
+  border-collapse: inherit;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.table thead,
+.table td {
+  border-right: 1px solid #bfc0c0;
+  border-top: 1px solid #bfc0c0;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px 20px;
+  vertical-align: top;
+}
+
+
+.table thead:last-child,
+.table td:last-child {
+  border-right: 0;
+}
+
+.table thead {
+  border-top: 0;
+  text-align: left;
+}
+
+.table th {
+  border-right: 1px solid #bfc0c0;
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.table th:last-child {
+  border-right: 0;
+}
+
+/*-----------------------------------------------
 *   Tools
 -----------------------------------------------*/
 
