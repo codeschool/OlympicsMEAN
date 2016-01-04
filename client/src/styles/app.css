@@ -76,6 +76,7 @@ a {
   border: 1px solid #bfc0c0;
   border-radius: 8px;
   display: block;
+  overflow: hidden;
   transition: 0.2s ease-in-out;
 }
 
@@ -106,7 +107,32 @@ a {
   color: #bfc0c0;
   display: block;
   padding: 20px;
+  position: relative;
   transition: 0.2s ease-in-out;
+}
+
+.card-link::after {
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  bottom: 0;
+  content: '';
+  display: block;
+  opacity: 0.1;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.card-link--cycling::after {
+  background-image: url('../images/icon-cycling.svg');
+  width: 200px;
+}
+
+.card-link--weightlifting::after {
+  background-image: url('../images/icon-weightlifting.svg');
+  width: 200px;
 }
 
 .card-link:active,
