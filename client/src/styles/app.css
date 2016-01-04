@@ -141,7 +141,7 @@ a {
   border: 1px solid #bfc0c0;
   border-radius: 8px;
   box-sizing: border-box;
-  flex-basis: 85%;
+  flex-basis: 50%;
   padding: 10px;
   width: 100%;
 }
