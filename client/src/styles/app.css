@@ -176,9 +176,7 @@ a {
 
 /* Box */
 
-.grid-box {
-  margin-bottom: 20px;
-}
+/* .grid-box {} */
 
 /* Modifiers */
 
@@ -274,4 +272,8 @@ a {
 
 .mbm {
   margin-bottom: 20px;
+}
+
+.mbl {
+  margin-bottom: 40px;
 }
