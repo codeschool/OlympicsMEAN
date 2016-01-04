@@ -1,0 +1,211 @@
+/*************************************************
+*
+*   Olympic Games
+*
+*************************************************/
+
+/*-----------------------------------------------
+*   Reset
+-----------------------------------------------*/
+
+@import url('reset.css');
+
+/*-----------------------------------------------
+*   Base
+-----------------------------------------------*/
+
+body {
+  background: white;
+  color: #333;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  font-weight: 300;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+a {
+  color: #ef8354;
+  text-decoration: none;
+}
+
+/*-----------------------------------------------
+*   Button
+-----------------------------------------------*/
+
+.btn {
+  background-color: #ef8354;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  display: inline-block;
+  line-height: 2.5;
+  padding: 0 40px;
+}
+
+/*-----------------------------------------------
+*   Card
+-----------------------------------------------*/
+
+.card {
+  border: 1px solid #bfc0c0;
+  border-radius: 8px;
+  display: block;
+  transition: 0.2s ease-in-out;
+}
+
+.card:active,
+.card:focus,
+.card:hover {
+  border-color: #808080;
+}
+
+/* ----- States ----- */
+
+/* Active */
+
+.card.is-active {
+  background-color: #2d3142;
+  border-color: #2d3142;
+}
+
+.card.is-active .card-link {
+  color: #ef8354;
+}
+
+/* ----- Submodules ----- */
+
+/* Link */
+
+.card-link {
+  color: #bfc0c0;
+  display: block;
+  padding: 20px;
+  transition: 0.2s ease-in-out;
+}
+
+.card-link:active,
+.card-link:focus,
+.card-link:hover {
+  color: #808080;
+}
+
+/* Title */
+
+.card-title {
+  margin-bottom: 0;
+}
+
+/*-----------------------------------------------
+*   Cell
+-----------------------------------------------*/
+
+.cell {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+/*-----------------------------------------------
+*   Form
+-----------------------------------------------*/
+
+/* .form {} */
+
+/* ----- Submodules ----- */
+
+/* Field */
+
+.form-field {
+  align-items: center;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+/* Input */
+
+.form-input {
+  border: 1px solid #bfc0c0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  flex-basis: 85%;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Label */
+
+.form-label {
+  flex-basis: 15%;
+}
+
+/*-----------------------------------------------
+*   Grid
+-----------------------------------------------*/
+
+.grid {
+  display: flex;
+}
+
+/* ----- Submodules ----- */
+
+/* Box */
+
+.grid-box {
+  margin-bottom: 20px;
+}
+
+/* Modifiers */
+
+.grid-box--6of12 {
+  flex-basis: 50%;
+  margin-right: 20px;
+}
+
+.grid-box--6of12:last-child {
+  margin-right: 0;
+}
+
+/*-----------------------------------------------
+*   Header
+-----------------------------------------------*/
+
+.header {
+  background-color: #2d3142;
+  margin-bottom: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+/*-----------------------------------------------
+*   List
+-----------------------------------------------*/
+
+/* .list {} */
+
+.list--unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*-----------------------------------------------
+*   Logo
+-----------------------------------------------*/
+
+.logo {
+  color: #ef8354;
+  margin-bottom: 0;
+}
+
+/*-----------------------------------------------
+*   Tools
+-----------------------------------------------*/
+
+.mbm {
+  margin-bottom: 20px;
+}

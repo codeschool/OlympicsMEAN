@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,300,400italic">
+  <link rel="stylesheet" href="src/styles/app.css">
   <style>
     [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
       display: none !important;
@@ -11,17 +12,25 @@
   </style>
 </head>
 <body>
-  <h1>Olympic Games</h1>
-
-  <div class="sports-list" ng-controller="SportsController">
-    <ul ng-cloak>
-      <li class="sport-name" ng-repeat="sport in sports">
-        <a ui-sref="sports-show({ sportId: sport.id })"> {{ sport.name }} </a>
-      </li>
-    </ul>
+  <div class="header">
+    <div class="cell">
+      <h1 class="logo">Olympic Games</h1>
+    </div>
   </div>
 
-  <div class="sports-info" ui-view></div>
+  <div class="cell">
+    <div class="sports-list" ng-controller="SportsController">
+      <ul class="grid list list--unstyled" ng-cloak>
+        <li class="grid-box grid-box--6of12 sport-name" ng-repeat="sport in sports">
+          <div class="card">
+            <h2 class="card-title"><a class="card-link" ui-sref="sports-show({ sportId: sport.id })"> {{ sport.name }} </a></h2>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sports-info" ui-view></div>
+  </div>
 
   <script src="dist/bundle.js"></script>
 </body>

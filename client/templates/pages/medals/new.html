@@ -1,22 +1,27 @@
-<form name="newMedalForm"
+<form class="form" name="newMedalForm"
   ng-controller="MedalsController as medalsCtrl"
   ng-submit="medalsCtrl.addMedal(sport.id, medal)"/>
 
-  <label>New Medal for {{ sport.name }}</label>
+  <h3 class="mbm">New Medal for {{ sport.name }}</h3>
 
-  <p>
-    Division: <input ng-model="medal.division" required />
-    </br>
-    Country: <input ng-model="medal.country" required />
-    </br>
-    Year:
-    <select ng-model="medal.year" required>
+  <div class="form-field">
+    <label class="form-label" for="division">Division:</label>
+    <input class="form-input" id="division" ng-model="medal.division" required />
+  </div>
+
+  <div class="form-field">
+    <label class="form-label" for="country">Country:</label>
+    <input class="form-input" id="country" ng-model="medal.country" required />
+  </div>
+
+  <div class="form-field">
+    <label class="form-label" for="year">Year:</label>
+    <select class="form-select" id="year" ng-model="medal.year" required>
       <option value="2012">2012</option>
       <option value="2016">2016</option>
     </select>
-    </br>
+  </div>
 
-    <input type="submit" value="Submit" />
-  </p>
+  <input class="btn" type="submit" value="Submit" />
 
 </form>
