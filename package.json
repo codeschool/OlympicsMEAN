@@ -10,7 +10,8 @@
   "author": "Carlos Souza <carloshrsouza@gmail.com> (http://csouza.me/)",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.4.9"
+    "angular": "^1.4.9",
+    "express": "^4.13.4"
   },
   "devDependencies": {
     "babel-core": "^6.2.1",
