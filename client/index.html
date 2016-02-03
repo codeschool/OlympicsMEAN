@@ -7,9 +7,7 @@
   <body>
     <h1>Olympics</h1>
 
-    <ul ng-controller="sportsController as sportsCtrl">
-      <li ng-repeat="sport in sportsCtrl.sports">{{ sport }}</li>
-    </ul>
+    <div ui-view></div>
 
     <script src="dist/bundle.js"></script>
   </body>
