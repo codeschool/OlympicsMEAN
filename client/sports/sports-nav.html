@@ -1,7 +1,19 @@
-<ul>
-  <li ng-repeat="sport in sportsCtrl.sports">
-    <a ui-sref="sports.medals({sportName: sport})">{{ sport }}</a>
-  </li>
-</ul>
+<div class="cell">
+  <div class="sports-list">
+    <ul class="grid list list--unstyled mbl" ng-cloak>
+      <li class="grid-box grid-box--6of12 sport-name" ng-repeat="sport in sportsCtrl.sports">
+        <div class="card">
+          <h2 class="card-title">
 
-<div ui-view></div>
+            <a class="card-link card-link--{{ sport.toLowerCase() }}" ui-sref="sports.medals({ sportName: sport })">
+              {{ sport }}
+            </a>
+
+          </h2>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="sports-info"  ui-view></div>

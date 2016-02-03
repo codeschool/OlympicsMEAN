@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="olympics">
-  <head>
-    <meta charset="utf-8">
-    <title>Olympics</title>
-  </head>
-  <body>
-    <h1>Olympics</h1>
+<html lang="en" ng-app="olympics">
+<head>
+  <meta charset="UTF-8">
+  <title>Olympic Games</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,300,400italic">
+  <link rel="stylesheet" href="styles/app.css">
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="cell">
+      <h1 class="logo">Olympic Games</h1>
+    </div>
+  </div>
 
-    <div ui-view></div>
+    <div class="cell" ui-view></div>
 
     <script src="dist/bundle.js"></script>
   </body>
