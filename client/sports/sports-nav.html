@@ -2,7 +2,7 @@
   <div class="sports-list">
     <ul class="grid list list--unstyled mbl" ng-cloak>
       <li class="grid-box grid-box--6of12 sport-name" ng-repeat="sport in sportsCtrl.sports">
-        <div class="card">
+        <div class="card" ng-class="{'is-active': sportsCtrl.isActive(sport)}">
           <h2 class="card-title">
 
             <a class="card-link card-link--{{ sport.toLowerCase() }}" ui-sref="sports.medals({ sportName: sport })">
